@@ -9,7 +9,16 @@ What did you expect? Now is Nothing.
 There is no such thing.
 
 ## Documentation
-If you want you can make it for you.
+If you want, you can make it for you.
+
+Or click [here](https://github.com/leejg1313/hypongJS/tree/master/documentations)
+
+## Three Great Benefits
+> The physics engine is shit. Maybe, never experienced it before.
+
+> There is no right way to use it. It just runs a pong game.
+
+> The developer did not invest a day. Maybe spent more time writing this.
 
 ## How to Master
 Really hopefully, you can make it like this.
