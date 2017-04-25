@@ -14,3 +14,4 @@ If you want you can make it for you.
 # How to Master
 Really hopefully, you can make it like this.
 <p><img src="https://github.com/leejg1313/hypongJS/blob/master/screenshots/hypongJS-Weird.gif" /></p>
+<p><del>Damn!</del></p>
