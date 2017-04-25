@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HypongJs - Multiple Instances</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maxium-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/hypong.js"></script>
+    <script src="https://use.fontawesome.com/6e2da93fca.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="stage1" class="grid" style="margin-right:20px;">
+        <!-- Hypong can build custom UI -->
+        <div class="inner-controller-home up">
+          <a class='btn btn-default btn-xs' onmousedown="stage1.homeY += 30;" onmouseup="stage1.homeY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-home down">
+          <a class='btn btn-default btn-xs' onmousedown="stage1.homeY -= 30;" onmouseup="stage1.homeY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away up">
+          <a class='btn btn-default btn-xs' onmousedown="stage1.awayY += 30;" onmouseup="stage1.awayY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away down">
+          <a class='btn btn-default btn-xs' onmousedown="stage1.awayY -= 30;" onmouseup="stage1.awayY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <div id="stage2" class="grid" style="margin-right:20px;">
+        <!-- Hypong can build custom UI -->
+        <div class="inner-controller-home up">
+          <a class='btn btn-default btn-xs' onmousedown="stage2.homeY += 30;" onmouseup="stage2.homeY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-home down">
+          <a class='btn btn-default btn-xs' onmousedown="stage2.homeY -= 30;" onmouseup="stage2.homeY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away up">
+          <a class='btn btn-default btn-xs' onmousedown="stage2.awayY += 30;" onmouseup="stage2.awayY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away down">
+          <a class='btn btn-default btn-xs' onmousedown="stage2.awayY -= 30;" onmouseup="stage2.awayY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <br />
+      <div id="stage3" class="grid" style="margin-right:20px;">
+        <!-- Hypong can build custom UI -->
+        <div class="inner-controller-home up">
+          <a class='btn btn-default btn-xs' onmousedown="stage3.homeY += 30;" onmouseup="stage3.homeY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-home down">
+          <a class='btn btn-default btn-xs' onmousedown="stage3.homeY -= 30;" onmouseup="stage3.homeY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away up">
+          <a class='btn btn-default btn-xs' onmousedown="stage3.awayY += 30;" onmouseup="stage3.awayY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away down">
+          <a class='btn btn-default btn-xs' onmousedown="stage3.awayY -= 30;" onmouseup="stage3.awayY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <div id="stage4" class="grid" style="margin-right:20px;">
+        <!-- Hypong can build custom UI -->
+        <div class="inner-controller-home up">
+          <a class='btn btn-default btn-xs' onmousedown="stage4.homeY += 30;" onmouseup="stage4.homeY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-home down">
+          <a class='btn btn-default btn-xs' onmousedown="stage4.homeY -= 30;" onmouseup="stage4.homeY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away up">
+          <a class='btn btn-default btn-xs' onmousedown="stage4.awayY += 30;" onmouseup="stage4.awayY += 30;">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+        </div>
+        <div class="inner-controller-away down">
+          <a class='btn btn-default btn-xs' onmousedown="stage4.awayY -= 30;" onmouseup="stage4.awayY -= 30;">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../js/examples/hypong-multipleInstances.js"></script>
+  </body>
+</html>

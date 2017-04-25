@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HypongJs - Event Hooking</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maxium-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/hypong.js"></script>
+    <script src="https://use.fontawesome.com/6e2da93fca.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="stage" class="grid" style="margin-right:20px;">
+        <!-- Custom Game UI -->
+        <div style="position:absolute; width:100%; height:20px; color: white;">
+          <div id="scoreboard" style="margin: auto; font-size:20px; margin-top:20px; text-align:center;">0 : 0</div>
+        </div>
+        <div id="effect" style="color:orange; position:absolute; bottom:20px; left:20px;"></div>
+        <div id="centerBar" style="height:100%; width:0px; border-left:2px dashed black; margin:auto;"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function drawScoreBoard () {
+        var scoreboard = document.getElementById('scoreboard');
+        scoreboard.innerHTML = stage.homeScore + ' : ' + stage.awayScore;
+        return stage;
+      }
+
+      var stage = hypong('stage', {
+        racketMargin: 40,
+      });
+
+      stage.homeY = 50;
+      stage.awayY = stage.height - 50;
+
+      stage.speed = 100;
+
+      stage.background = "gray";
+      stage.racketColor = "orange";
+
+      stage.onStop = (isTemporary, currentState) => {
+        var scoreboard = document.getElementById('scoreboard');
+        scoreboard.innerHTML = currentState.homeScore + ' : ' + currentState.awayScore; 
+      };
+
+      var bams = [];
+      stage.onCollision = (currentState) => {
+        var effect = document.getElementById('effect');
+        bams.push("BAM!")
+        effect.innerHTML = bams.join(' ');
+        setTimeout(() => {
+          bams.shift();
+          effect.innerHTML = bams.join(' ');
+        }, 800);
+      };
+
+      var colors = ['white', 'black', 'white', 'black'];
+      var i = 0;
+
+      stage.onFrameEnd = (currentState) => {
+        var width = stage.width;
+        var height = stage.height;
+
+        var centerBarX = width / 2;
+        var centerBarY = centerBarVRadius = height / 2;
+
+        var ballX = currentState.ballX;
+        var ballY = currentState.ballY;
+
+        var ballVectorX = currentState.ballVector.x;
+        var ballVectorY = currentState.ballVector.y;
+
+        var ballSize = stage.ballSize;
+
+        var homeX = currentState.homeX;
+        var homeY = currentState.homeY;
+
+        var awayX = currentState.awayX;
+        var awayY = currentState.awayY;
+
+        var racketVRadius = stage.racketHeight / 2;
+        var racketHRadius = stage.racketWidth / 2;
+
+        if (width <= ballX + ballSize + (ballVectorX * (stage.speed / 100))) { 
+          // Hooking of the right side collision
+          stage.fireEvent(stage.onCollision, currentState);
+          stage.ballVector.x = -stage.ballVector.x;
+        } 
+
+        if (0 >= ballX - ballSize + (ballVectorX * (stage.speed / 100))) {
+          // Hooking of the left side collision
+          stage.fireEvent(stage.onCollision, currentState);
+          stage.ballVector.x = -stage.ballVector.x;
+        }
+
+        var homeCollision = stage.getCollisionInfo(
+          homeX - (ballVectorX * (stage.speed / 100)),
+          homeY,
+          racketVRadius,
+          racketHRadius,
+          ballX,
+          ballY,
+          ballSize,
+          ballSize
+        );
+
+        var awayCollision = stage.getCollisionInfo(
+          awayX - (ballVectorX * (stage.speed / 100)),
+          awayY,
+          racketVRadius,
+          racketHRadius,
+          ballX,
+          ballY,
+          ballSize,
+          ballSize
+        );
+
+        var isHomeCollision = stage.ballWillPassThrough(
+          homeX,
+          homeY,
+          racketVRadius,
+          ballX,
+          ballY,
+          ballVectorX,
+          ballVectorY,
+          ballSize,
+          ballSize
+        );
+
+        var isAwayCollision = stage.ballWillPassThrough(
+          awayX,
+          awayY,
+          racketVRadius,
+          ballX,
+          ballY,
+          ballVectorX,
+          ballVectorY,
+          ballSize,
+          ballSize
+        );
+
+        if (homeCollision.isCollision || isHomeCollision) {
+          // Hooking of the back side collision event of home's racket
+          if (homeCollision.LRDirection === 'left') {
+            stage.ballX = centerBarX;
+            stage.awayScore ++;
+            stage.ballVector.x = -stage.ballVector.x;
+            drawScoreBoard().resetBall(-100).hideBall();
+          }
+        }
+
+        if (awayCollision.isCollision || isAwayCollision) {
+          // Hooking of the back side collision event of away's racket
+          if (awayCollision.LRDirection === 'right') {
+            stage.ballX = centerBarX;
+            stage.homeScore ++;
+            stage.ballVector.x = -stage.ballVector.x;
+            drawScoreBoard().resetBall(100).hideBall();
+          }
+        }
+
+        if (
+          stage.ballWillPassThrough(
+            centerBarX,
+            centerBarY,
+            centerBarVRadius,
+            ballX,
+            ballY,
+            ballVectorX,
+            ballVectorY,
+            ballSize,
+            ballSize
+          )
+        ){
+          // The ball passes through the center line
+          i = (i === colors.length) ? 0 : i;
+          stage.ballVector.y = -stage.ballVector.y;
+          document.getElementById('centerBar').style.borderColor = colors[i++];
+        }
+      };
+      stage.run();
+    </script>
+    <script type="text/javascript" src='../js/examples/hypong-keyboardController.js'></script>
+  </body>
+</html>

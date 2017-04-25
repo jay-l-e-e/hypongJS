@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HypongJs - Dynamic Logs (Auto Start)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maxium-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/hypong.js"></script>
+    <script src="https://use.fontawesome.com/6e2da93fca.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="stageWrapper" class='grid heightLimit'>
+        <div id="stage"></div>
+        <div id="bootbox">
+          <a class='btn btn-primary btn-xs' onclick="stage.homeScore = 0; stage.awayScore = 0; stage.render().run();">Start</a>
+          <a class='btn btn-danger btn-xs' onclick="stage.homeScore = 0; stage.awayScore = 0; stage.render().stop().render();">Quit</a>
+        </div>
+      </div>
+
+      <div id="controller" class="grid heightLimit">
+        <h2>
+          <a class='icon'>
+            <i class='fa fa-star'></i>
+          </a>
+          <span id="scores">0 : 0</span>
+        </h2>
+
+        <a class='icon'>
+          <i class='fa fa-desktop'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.width = 800; stage.height = 500;">Large Screen</a>
+        <a class='btn btn-success btn-xs' onclick="stage.width = 450; stage.height = 250;">Default Screen</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.width = 250; stage.height = 150;">Small Screen</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-fast-forward'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.speed = 100;">Ball Speed 100</a>
+        <a class='btn btn-success btn-xs' onclick="stage.speed = 50;">Ball Speed 50</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.speed = 10;">Ball Speed 10</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-futbol-o'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.ballSize = 8;">Large Ball</a>
+        <a class='btn btn-success btn-xs' onclick="stage.ballSize = 4;">Default Ball</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.ballSize = 2;">Small Ball</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-arrows-v'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.racketHeight = 60;">Long Racket</a>
+        <a class='btn btn-success btn-xs' onclick="stage.racketHeight = 35;">Default Racket</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.racketHeight = 20;">Short Racket</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-arrows-h'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.racketWidth = 9;">Bolder Racket</a>
+        <a class='btn btn-success btn-xs' onclick="stage.racketWidth = 5;">Default Racket</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.racketWidth = 3;">Thin Racket</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-compress'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.racketMargin = 5;">Distant Racket</a>
+        <a class='btn btn-success btn-xs' onclick="stage.racketMargin = 10;">Default Racket</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.racketMargin = 20;">Close Racket</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-angle-double-up'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="racketSpeed = 8;">Racket Speed 8</a>
+        <a class='btn btn-success btn-xs' onclick="racketSpeed = 3;">Racket Speed 3</a>
+        <a class='btn btn-danger btn-xs' onclick="racketSpeed = 1;">Racket Speed 1</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-film'></i> 
+        </a>
+        <a class='btn btn-info btn-xs' onclick="stage.fps = 80;">FPS 80</a>
+        <a class='btn btn-success btn-xs' onclick="stage.fps = 60;">FPS 60 (Default)</a>
+        <a class='btn btn-danger btn-xs' onclick="stage.fps = 30;">FPS 30</a>
+
+        <br />
+
+        <a class='icon'>
+          <i class='fa fa-play-circle-o'></i> 
+        </a>
+        <a class='btn btn-warning btn-xs' onclick="stage.stop();">Stop</a>
+        <a class='btn btn-primary btn-xs' onclick="stage.run();">Play</a>
+      </div>
+
+      <div class="grid heightLimit">
+        <h2>Event Logs</h2>
+
+        <div class='log' id="eventLogs"></div>
+      </div>
+
+      <div class="grid heightLimit">
+        <h2>Frame Logs</h2>
+
+        <div class='log' id="frameLogs"></div>
+      </div>
+
+      <div class="grid heightLimit">
+        <h2>Current State</h2>
+
+        <pre class='log' id="currentStateLogs"></pre>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+    <script type="text/javascript" src="../js/examples/hypong-dynamicEventLogs-autoStart.js"></script>
+    <script type="text/javascript" src="../js/examples/hypong-keyboardController.js"></script>
+  </body>
+</html>
