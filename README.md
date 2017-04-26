@@ -11,14 +11,16 @@ There is no such thing.
 ## Documentation
 If you want, you can make it for you.
 
-Or click [here](https://github.com/leejg1313/hypongJS/tree/master/documentations)
+Or click [here](https://github.com/leejg1313/hypongJS/tree/master/documentations). That's about it.
 
-## Three Great Benefits
-> The physics engine is shit. Maybe, never experienced it before.
+## Four Great <del>Shits</del> Benefits
+> It can turn everything into a pong game! awesome.
 
-> There is no right way to use it. It just runs a pong game.
+> The physics engine is <del>shit</del> nice! Maybe, never experienced it before.
 
-> The developer did not invest a day. Maybe spent more time writing this.
+> There is no right way to use it! It just runs a pong game.
+
+> The developer did not invest a day! Maybe spent more time writing this.
 
 ## How to Master
 Really hopefully, you can make it like this.
