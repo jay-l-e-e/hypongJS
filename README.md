@@ -6,6 +6,8 @@ A Super-easy way to build a variety of pong games, based on JS.
 ## Demo
 What did you expect? Annoying.
 
+[I did not really prepare for you.](https://codepen.io/JayMint/pen/YVNxea)
+
 ## Installation
 There is no such thing.
 
