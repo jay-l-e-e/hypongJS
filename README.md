@@ -1,6 +1,7 @@
 # hypongJS
 A Super-easy way to build a variety of pong games, based on JS.
-<p><img src="https://github.com/leejg1313/hypongJS/blob/master/screenshots/hypongJS.gif" /></p>
+
+![alt hypongJS Master](https://raw.githubusercontent.com/leejg1313/hypongJS/master/screenshots/hypongJS.gif)
 
 ## Demo
 What did you expect? Annoying.
@@ -24,5 +25,6 @@ Or click [here](https://github.com/leejg1313/hypongJS/tree/master/documentations
 
 ## How to Master
 Really hopefully, you can make it like this.
-<p><img src="https://github.com/leejg1313/hypongJS/blob/master/screenshots/hypongJS-Weird.gif" /></p>
+
+![alt hypongJS Master](https://raw.githubusercontent.com/leejg1313/hypongJS/master/screenshots/hypongJS-Weird.gif)
 <p><del>Damn!</del></p>
