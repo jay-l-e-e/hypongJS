@@ -1,7 +1,7 @@
-# hypongJS
+# ![alt hypongJS Logo](https://raw.githubusercontent.com/leejg1313/hypongJS/master/img/hypongJS-Logo.png)
 A Super-easy way to build a variety of pong games, based on JS.
 
-![alt hypongJS Master](https://raw.githubusercontent.com/leejg1313/hypongJS/master/screenshots/hypongJS.gif)
+![alt hypongJS](https://raw.githubusercontent.com/leejg1313/hypongJS/master/screenshots/hypongJS.gif)
 
 ## Demo
 What did you expect? Annoying.
