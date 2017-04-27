@@ -49,16 +49,17 @@
           racketColor: white,
           ballColor: white,
           fps: thousand / hexadecimal,
+          isRunning: false,
         },
         // Applied props. User can only offer the props listed below.
-        appliedProps = 'width|height|speed|racketHeight|racketWidth|racketMargin|ballSize|fps|ballColor|racketColor|background|onStart|onStop|onFrameEnd|onFrameStart|onCollision|homeY|awayY',
+        appliedProps = 'width|height|speed|racketHeight|racketWidth|racketMargin|ballSize|fps|ballColor|racketColor|background|onStart|onStop|onFrameEnd|onFrameStart|onCollision|homeY|awayY|homeScore|awayScore|ballX|ballY',
         setterWithRender = function(prop, value) {
           this['_' + prop] = value;
 
           return this.render();
         },
         setterWithHomeRacketDraw = function(prop, value) {
-          if (this.isRunning || this.isRunning === undefined) {
+          if (this.isRunning) {
             const racketVRadius = this.racketHeight / binary;
             const height = this.height;
 
@@ -76,7 +77,7 @@
           return this.drawHomeRacket();
         },
         setterWithAwayRacketDraw = function(prop, value) {
-          if (this.isRunning || this.isRunning === undefined) {
+          if (this.isRunning) {
             const racketVRadius = this.racketHeight / binary;
             const height = this.height;
 
@@ -115,8 +116,8 @@
 
           this.spawnHomeRacket().spawnAwayRacket();
         },
-        // Props defined as a setter. If user modify the values listed below, the layout is updated.
-        definedAsSetterProps = [
+        // Props defined as a setter. If user modify the values listed below, the layout or state is updated.
+        propsDefinedAsSetter = [
           ['width', setterWithRender],
           ['height', setterWithRender],
           ['ballSize', setterWithRender],
@@ -215,13 +216,13 @@
       }
 
       // Initializing the props defined as setter.
-      for (const prop in definedAsSetterProps) {
-        Object.defineProperty(this, definedAsSetterProps[prop][zero], {
+      for (const prop in propsDefinedAsSetter) {
+        Object.defineProperty(this, propsDefinedAsSetter[prop][zero], {
           configurable: true,
           get: function() {
-            return this['_' + definedAsSetterProps[prop][zero]];
+            return this['_' + propsDefinedAsSetter[prop][zero]];
           },
-          set: definedAsSetterProps[prop][unary].bind(this, definedAsSetterProps[prop][zero])
+          set: propsDefinedAsSetter[prop][unary].bind(this, propsDefinedAsSetter[prop][zero])
         });
       }
 
@@ -341,6 +342,8 @@
       const racketMargin = this.racketMargin;
       const racketColor = this.racketColor;
 
+      this._homeY = this.height / binary;
+
       style.width = racketWidth + px;
       style.height = racketHeight + px;
       style.bottom = (this.homeY - (racketHeight / binary)) + px;
@@ -360,6 +363,8 @@
       const racketHeight = this.racketHeight;
       const racketMargin = this.racketMargin;
       const racketColor = this.racketColor;
+
+      this._awayY = this.height / binary;
 
       style.width = racketWidth + px;
       style.height = racketHeight + px;
@@ -773,7 +778,7 @@
 
     // Remove elements by given class.
     removeElementsByClassName(className){
-      var elements = this[0].getElementsByClassName(className);
+      const elements = this[0].getElementsByClassName(className);
       while(elements.length > 0){
         this[0].removeChild(elements[0]);
       }

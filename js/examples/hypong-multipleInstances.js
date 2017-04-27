@@ -1,6 +1,6 @@
 /* 
  * hypong.js version 1.0.0, @license MIT, (c) 2017 Jay Lee.
- * : Dynamic Event Logs Example.
+ * : Multiple Instances Example
  */
 const stage1 = hypong('stage1').run();
 const stage2 = hypong('stage2').run();
