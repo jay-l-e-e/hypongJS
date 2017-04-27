@@ -1,5 +1,5 @@
 
-<p align="center"><img src="https://raw.githubusercontent.com/leejg1313/hypongJS/master/img/hypongJS-Logo.png" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/leejg1313/hypongJS/master/img/hypongJS-Logo-Original.png" /></p>
 
 ---
 
