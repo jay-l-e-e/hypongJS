@@ -26,7 +26,7 @@ There is no such thing.
 ## Documentation
 If you want, you can make it for you.
 
-Or click [here](https://github.com/leejg1313/hypongJS/tree/master/documentations). That's about it.
+Or click [here](https://github.com/leejg1313/hypongJS/tree/master/docs). That's about it.
 
 ---
 
