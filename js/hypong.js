@@ -157,10 +157,10 @@
 
   // Using this method, user can add some custom functions to hypong's prototype.
   hypong.extend = hypong.fn.extend = function () {
-    let   o;
+    let   o,
+          target = this;
     const i = unary,
           length = arguments.length,
-          target = this,
           object = arguments[ zero ];
 
     if ( length > i ) {
